@@ -1,0 +1,68 @@
+\documentclass[
+  a4paper, % paper size
+  oneside, % one sided layout
+  %twoside, % double sided layout
+  parskip, % space before paragraph
+  %draft, % mark overflow lines
+  bibliography=totoc, % add bibliography to table of contents
+  USenglish] % us english
+  {scrbook}
+
+\usepackage[T1]{fontenc} % 8 bit encoding for fonts
+\usepackage[utf8]{inputenc} % utf-8 encoding for source files
+\usepackage{lmodern} % better font
+\usepackage[babel]{microtype} % better type color
+\usepackage{babel} % language commands and hyphenation
+
+\usepackage{graphicx} % \includegrafics
+\usepackage{framed} % \begin{framed}
+\usepackage{geometry} % \newgeometry, \resetgeometry)
+\usepackage{setspace} % \onehalfspacing
+\usepackage{pdflscape} % \begin{landscape}
+
+\usepackage{booktabs} % \toprule, \midrule, \bottomrule
+\usepackage{threeparttable} % \tnote, \begin{tablenotes}
+\usepackage{longtable}
+
+\usepackage{scrhack} % avoid deprecated KOMA-Script warnings in packages
+
+\usepackage[
+  printonlyused, % only print used appreviations
+  % withpage, % print page with first usage
+  footnote] % print long form in footnote (instead of "acronym (long form)")
+	{acronym} % \ac, \acs, \acl, \begin{acronym}
+		
+\usepackage{pdfpages} % \includepdf
+\usepackage{listings} % \lstnewenvironment
+\usepackage{float} % \newfloat, \floatname
+
+\usepackage{hyperref} % \ref, \url
+
+% global formatting
+\onehalfspacing % line spacing 1.5
+\bibliographystyle{alpha} % reference style
+
+% default listing
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, const, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, let, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+\lstset{
+	aboveskip=1.5\baselineskip,      % space before listing
+	breakatwhitespace=true,          % break only at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=single,                    % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	language=JavaScript,             % the language of the code
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	tabsize=2,                       % sets default tabsize in spaces
+}
