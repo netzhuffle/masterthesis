@@ -1,0 +1,153 @@
+\chapter{Project Proposal}
+
+This chapter describes the project as it was proposed by the author for the
+master thesis.
+
+Like the original project proposal, this chapter is written in German.
+
+\selectlanguage{ngerman}
+
+\section{Studierender}
+
+Jannis Grimm
+
+\section{Semester}
+
+HS 2016
+
+\section{Projekttitel}
+
+\foreignlanguage{USenglish}{Webbased API for Realization of Real-Time
+Peer-to-Peer, Serverless, Installation and Plugin Free Board and Card Games With
+Untrusted Third Party Opponents}
+
+\section{Projektbetreuer}
+
+Prof. Dr. Farhad Mehta
+
+\section{Datum Projektstart}
+
+16. Juni 2016
+
+\section{Datum Projektende}
+
+16. Dezember 2016
+
+\section{Projektziele und Projektbeschreibung}
+
+Es soll eine webbasierte API zur Umsetzung von Brett- und Kartenspielen
+inklusive Beispielumsetzungen entwickelt und dokumentiert werden. Diese sollen
+ohne Installation oder Plugin im Webbrowser nutzbar sein. Die Kommunikation
+findet (mit Ausnahme des Ladens der Webapplikation und des Verbindungsaufbaus)
+Peer-to-Peer ohne zentralen Server statt. Dabei muss beachtet werden, dass den
+anderen Clients nicht vertraut werden kann und somit kryptografisch
+sichergestellt werden, dass kein Betrug bei verdeckten Informationen oder
+Zufallszahlen möglich ist.
+
+\begin{enumerate}
+  \item Die API muss die Umsetzung von verschiedenen Arten von Brett- und
+  Kartenspielen ermöglichen.
+  \item Zum Zeigen der Erreichung dieses Ziels muss ein nutzbares, einfaches,
+  bekanntes sowie ein komplexeres, aktuelles  Brett- oder Kartenspiel umgesetzt
+  werden.
+  \item Die API muss mindestens folgende, typische Funktionalitäten von Brett-
+  und Kartenspielen unterstützen:
+  \begin{enumerate}
+    \item Anzeige eines Spielbrettes
+    \item Bewegen von Figuren und Markern auf dem Spielbrett
+    \item Erzeugen von Zufall mittels sechsseitiger Zahlenwürfel
+    \item Erzeugen von Zufall mittels gemischter Kartenstapel
+    \item Karten ziehen von offenen und verdeckten Stapeln und ablegen, frei
+    positioniert oder gezielt auf Ablagestapel
+    \item Mischen von Ablagestapeln zur Erzeugung neuer Zugstapel
+    \item Handkarten, die für andere Spieler nicht einsehbar sind
+  \end{enumerate}
+  \item Da Manipulation der Clients möglich ist, muss bei all jenen
+  Funktionen Betrug ausgeschlossen werden:
+  \begin{enumerate}
+    \item Zufallszahlen müssen auf eine Art erzeugt werden, dass sie nicht von
+    einzelnen Clients beeinflussbar sind.
+    \item Verdeckte Karten dürfen nicht clientseitig nachträglich ausgetauscht
+    werden können.
+    \item Beim Ziehen von Karten eines gemischten Stapels muss ausgeschlossen
+    werden können, dass der Gegner erfährt, welche Karte gezogen wurde,
+    gleichzeitig jedoch ausgeschlossen werden, dass zwei Clients dieselbe
+    physische Karte ziehen können oder beeinflusst werden kann, welche Karte
+    gezogen wird.
+  \end{enumerate}
+  \item Das Verbinden von Clients auf ein gemeinsames Spiel muss über URLs
+  stattfinden, die an die Mitspieler weitergegeben werden können.
+  \item Sind die Clients verbunden, muss sämtliche Kommunikation Peer-to-Peer
+  stattfinden, ohne einen zentralen Server zu nutzen.
+  \item Die Webapplikation muss in den aktuellen Versionen von Chrome, Edge,
+  Firefox und Opera funktionieren (da sich jene Browser automatisch
+  aktualisieren, wird eine Unterstützung älterer Versionen dieser Browser als
+  nicht notwendig angesehen).
+  \item Folgende seltenere Funktionalitäten von Brett- und Kartenspielen sollten
+  unterstützt werden, sofern genügend Zeit zur Realisierung ist:
+  \begin{enumerate}
+    \item Mehrere Spielbretter
+    \item Stapeln von Markern
+    \item Zweiseitige, umdrehbare Marker
+    \item Würfel mit angepassten Seiten (beispielsweise Symbole)
+    \item Würfel mit unterschiedlichen Seitenzahlen
+  \end{enumerate}
+  \item Falls es die Zeit zulässt, kann die API Möglichkeiten zur
+  Automatisierung häufiger Spielaktionen oder Kontrolle der Einhaltung von
+  Spielregeln möglich machen.
+\end{enumerate}
+
+Ziele 1–7 sind dabei Muss-Kriterien, Ziel 8 ist ein Soll-Kriterium und Ziel 9
+ist ein Kann-Kriterium. Ausdrücklich nicht Ziel ist die Umsetzung einer
+ansprechenden und optimierten grafischen Oberfläche. Da die API im Vordergrund
+steht reicht eine einfache, zweckmässige Umsetzung.
+
+\section{Projektpartner}
+
+N/A
+
+\section{Zu erwartende Ergebnisse}
+
+\begin{itemize}
+  \item Technischer Bericht 
+  \item API-Dokumentation
+  \item Quellcode der API
+  \item Quellcode der Beispielumsetzungen
+  \item Poster
+  \item Webserver-Instanz mit der realisierten Web-Applikation
+  \item CD mit allen Ergebnissen
+\end{itemize}
+
+\section{Zu erarbeitende Kompetenzen (Fach-, Methoden- und Selbstkompetenzen)}
+
+\begin{itemize}
+  \item Konzeptionierung und Erarbeiten einer zielführenden API
+  \item Anwenden von Design-Patterns
+  \item Selbstständiges aneignen von Kenntnissen der benötigten, modernen
+  Webtechnologien
+  \item Selbstständiges Erarbeiten der benötigen kryptografischen Kenntnisse
+  \item Selbstständiges Erarbeiten der benötigen Kenntnisse im Bereich Verteilte
+  Software Systeme
+  \item Schreiben eines wissenschaftlichen Berichts
+  \item Selbstständige Umsetzung eines Projekts von Idee über Planung bis
+  Realisierung
+  \item Strukturierte und geplante Vorgehensweise
+\end{itemize}
+
+\section{Beschreibung der Leistungsbeurteilung}
+
+Gemäss Modulbeschreibung SWSY_MT:
+
+\begin{itemize}
+  \item Organisation / Durchführung
+  \item Bericht / Sprache
+  \item Analyse
+  \item Entwurf
+  \item Umsetzung
+\end{itemize}
+
+\section{ECTS-Credits}
+
+27 ECTS-Credits
+
+\selectlanguage{USenglish}

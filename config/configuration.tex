@@ -4,21 +4,21 @@
   %twoside, % double sided layout
   parskip, % space before paragraph
   %draft, % mark overflow lines
-  bibliography=totoc, % add bibliography to table of contents
-  USenglish] % us english
+  bibliography=totoc] % add bibliography to table of contents
   {scrbook}
 
 \usepackage[T1]{fontenc} % 8 bit encoding for fonts
 \usepackage[utf8]{inputenc} % utf-8 encoding for source files
 \usepackage{lmodern} % better font
 \usepackage[babel]{microtype} % better type color
-\usepackage{babel} % language commands and hyphenation
+\usepackage[ngerman, USenglish]{babel} % language commands and hyphenation
 
-\usepackage{graphicx} % \includegrafics
+\usepackage{graphicx} % \includegraphics
 \usepackage{framed} % \begin{framed}
 \usepackage{geometry} % \newgeometry, \resetgeometry)
 \usepackage{setspace} % \onehalfspacing
 \usepackage{pdflscape} % \begin{landscape}
+\usepackage{underscore} % no need to escape _ in text
 
 \usepackage{booktabs} % \toprule, \midrule, \bottomrule
 \usepackage{threeparttable} % \tnote, \begin{tablenotes}
