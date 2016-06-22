@@ -7,6 +7,7 @@
   bibliography=totoc] % add bibliography to table of contents
   {scrbook}
 
+\usepackage{scrhack} % avoid deprecated KOMA-Script warnings in packages
 \usepackage[T1]{fontenc} % 8 bit encoding for fonts
 \usepackage[utf8]{inputenc} % utf-8 encoding for source files
 \usepackage{lmodern} % better font
@@ -23,20 +24,16 @@
 \usepackage{booktabs} % \toprule, \midrule, \bottomrule
 \usepackage{threeparttable} % \tnote, \begin{tablenotes}
 \usepackage{longtable}
-
-\usepackage{scrhack} % avoid deprecated KOMA-Script warnings in packages
-
-\usepackage[
-  printonlyused, % only print used appreviations
-  % withpage, % print page with first usage
-  footnote] % print long form in footnote (instead of "acronym (long form)")
-	{acronym} % \ac, \acs, \acl, \begin{acronym}
 		
 \usepackage{pdfpages} % \includepdf
 \usepackage{listings} % \lstnewenvironment
 \usepackage{float} % \newfloat, \floatname
 
 \usepackage{hyperref} % \ref, \url
+
+\usepackage[
+  toc] % add to table of contents
+	{glossaries} % \newglossaryentry, \newacronym, \gls, \glspl
 
 % global formatting
 \onehalfspacing % line spacing 1.5
@@ -66,3 +63,6 @@
 	showtabs=false,                  % show tabs within strings adding particular underscores
 	tabsize=2,                       % sets default tabsize in spaces
 }
+
+% collect glossary entries
+\makeglossaries
