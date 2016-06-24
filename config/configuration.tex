@@ -5,7 +5,7 @@
   parskip, % space before paragraph
   %draft, % mark overflow lines
   bibliography=totoc] % add bibliography to table of contents
-  {scrbook}
+{scrbook}
 
 \usepackage{scrhack} % avoid deprecated KOMA-Script warnings in packages
 \usepackage[T1]{fontenc} % 8 bit encoding for fonts
@@ -32,7 +32,8 @@
 \usepackage{hyperref} % \ref, \url
 
 \usepackage[
-  toc] % add to table of contents
+  toc, % add to table of contents
+  footnote] % explain acronyms in footnotes instead of inside text
 	{glossaries} % \newglossaryentry, \newacronym, \gls, \glspl
 
 % global formatting

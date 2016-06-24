@@ -1,0 +1,123 @@
+\chapter{Vision}
+
+This chapter explains the vision for the project.
+
+\section{Current Situation}
+
+In the growing sector of board and card games, companies started in the last few
+years to letting produce their products as apps for mobile devices and
+computers. This allows users to play their favorite board and card games on the
+go without needing table space or over the internet with friends at other
+places---as long as they have access to a plattform on which the developer
+created an app for.
+
+In contrast to native apps which have to be created for each operating system,
+there is the web plattform which essentially is usable on every operating
+system. This has the big advantage that apps for the web have to be created once
+and can be used on every operating system---there is no need to develop and
+maintain multiple apps to be able to target each user. Also, web apps can be
+used without installation---this allows the userbase to grow fast as every
+person who knows about the web app is immediately able to use it.
+
+Until a few years ago, the web plattform had downsides which kept developers
+from using its advantages: It was missing key functionalities (e.g.
+no offline capatibilities, no 3D graphic support, no \gls{peer-to-peer}
+connections, and so on). With the stabilisation of the \gls{HTML5} ecosystem
+this issue changed: A lot of new standards emerged which began to close the
+functionality gap between native and web apps. While browser vendors are quick
+to implement the new standards in their respective browser, there was another
+issue: Users where slow in adapting new versions of their web browsers. It was
+not practically possible to use the new \gls{HTML5} functionallity without
+excluding a big part of the users who still are using old browser version. This
+now has changed in the last years: Web browsers now are automatically updating
+as soon as new versions are released. This assures that most of the users are
+able to use those new functionalities and newly added functionalities are soon
+usable for most of the existing users.
+
+With both of the mentioned problems solved, developers are now able to use make
+use of the advantages of the web plattform. But as of today, there is no
+application framework known to the author that allows creating board and card
+game implementation without needing browser plugins (like Flash Player or Unity
+Player) which destroy the web plattform advantages, as again installations are
+needed and the plugin needs to exist for the user's operating system. Also there
+is no application framework known to the author that is both open source and
+generic (to support different types of board and card games). As such, there
+exists a lot of unused potential for board and card games on the web plattform.
+
+\section{Goals}
+
+As a part of this project, a application framework for the web plattform should
+be created, allowing developers to easily create board and card game
+implementations and as such make use of the advantages of the web plattform for
+their board and card games. This framework should make use of the new
+\gls{HTML5} functionalities like \gls{peer-to-peer} connections (and thus not
+requiring a server for communication), taking away the need for every developer
+to reinvent the wheel and needing to develop an own solution. Through a
+well-defined \gls{API} these inner workings should be taken away from the board
+and card games implementation, allowing the developers to only care about their
+game implementations.
+
+The user should be able to navigate to a board or card game website with their
+web browser to start a new game session. He should then be able to invite
+friends by simply giving them the unique game session URL. Visiting these links,
+the users automatically connect \gls{peer-to-peer} to each other, being able to
+start use the chosen board or card game. By reducing the connection process for
+the user to just sharing and using an URL, the biggest advantages of the web
+plattform can be used---no registration, searching by usernames, or similar is
+required and the players can directly jump into the game with a single click.
+
+Together with the \gls{API}, two board or card game implementations are part of
+the project. This allows testing and showcasing the \gls{API}, giving practical
+examples how to use the \gls{API} and showing that the \gls{API} is generic and
+applicable to real world board and card games.
+
+There are a few challanges for this project:
+
+\begin{description}
+  \item[Generic \gls{API}:] Designing an \gls{API} which allows the realization
+  of as much different games as feasible.
+  \item[Trust control:] Being \gls{peer-to-peer} based, there is no trusted
+  server to control or store \gls{hidden information}. Other players could use
+  manipulated clients, so cheating should be prevented on the framework level.
+  By example, if a user plays a \gls{face}-down \gls{card}, the other user
+  do not know what is on the front side of the card, but the user must not be
+  able to change the card with another when revealing.
+  \item[Distributed generation of randomness:] \Glspl{die} are a common element
+  in board games. There must be a way to conjointly create pseudo-random numbers
+  without needing to trust the other clients.
+  \item[“Mental Poker Problem”:] Users must be able to draw \glspl{card} from a
+  shared, shuffled card pile without the other clients knowing which
+  \glspl{card} they are and without beeing able for multiple clients to draw the
+  same “physical” \gls{card}.
+  \item[Reference implementations:] Finding two very different board or card
+  games for the reference implementations to use as an example, to showcase all
+  realized features and to show the abilities of the framework.
+\end{description}
+
+\section{Motivation}
+
+As there is no similar project known to the author, there is a high relevancy to
+practice of this project. There is a high chance the result of the master thesis
+and this project are going to be used by users wanting a simple,
+installation-less possibility to compete in online board and card games, as well
+as by publishers wanting to offer their games for promotional proposes or even
+as a paid solution.
+
+As the author's specialisation during the master studies have been modern web
+technologies, he is very interested in this project, as it allows using multiple
+new web technologies that have not been around a few years ago. As a student
+project research thesis during the bachelor studies he worked on a web
+application with \gls{peer-to-peer} video telephony as the core feature
+\cite{blaser2013practical}. It will be interesting to see how the feature and
+the browser support developed since then (as the specification was back then and
+still is in the Working Draft status as of June 2016 \cite{w3c2016webrtc}). He
+loves learning new things and finding out how to use new technologies.
+
+During leisure time, the author enjoys playing board and card games, has a
+growing collection, visits board game fairs as an exhibitor and novelty
+presenter and works on multiple board games as an editor. Thus he had the idea
+for the master thesis since the beginning of his master studies and is looking
+forward to finally being able to realize this project as it merges two of his
+favorite subjects, has very interesting mathematic and cryptographic problems to
+be solved and also contains research parts about finding the right
+technologies, how to use them and solve the associated challanges.
