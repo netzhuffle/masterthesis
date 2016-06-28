@@ -17,7 +17,7 @@ This chapter explains the requirements for the project.
     \item Placing and moving game pieces
     \item Generate randomness through six-sided \glspl{die} numbered from 1 to 6
     \item Generate randomness through shuffled card \glspl{deck}
-    \item Drawing cards from \gls{face}-up and \gls{face}-down
+    \item Drawing cards from a \gls{draw pile}
     \glspl{draw pile}
     \item Placing cards, either freely or on \glspl{discard pile}
     \item Shuffling a \glspl{discard pile} to create a new \glspl{draw pile}
@@ -72,4 +72,30 @@ This chapter explains the requirements for the project.
   \item The reference implementations should be published as open-source. They
   may be published under a proprietary licence if requested by the rightsholders
   or not be published at all and just be used for documentation purposes.
+\end{enumerate}
+
+\section{API Use-Case Model}
+
+As the API is only used by board and card game implementations, there is a
+single actor: The game implementation.
+
+The Use-Case Model contains the “must” and “should” requirements but no “may”
+requirements. The actions of the players inside games depend on the games and
+thus are not handled here.
+
+\subsection{Use-Case List}
+
+\begin{enumerate}
+  \item Create a game session
+  \item Connect to a game session
+  \item Add a board to the table
+  \item Add a game piece to the table
+  \item Add a \gls{draw pile} to the table
+  \item Add a \gls{die} to the table
+  \item Roll a \gls{die}
+  \item Draw a card
+  \item Move a game piece
+  \item Move a card
+  \item Shuffle a \gls{discard pile} to create a \gls{draw pile}
+  \item Flip a game piece
 \end{enumerate}
