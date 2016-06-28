@@ -1,13 +1,5 @@
 \newacronym{API}{API}{application programming interface}
 
-\newglossaryentry{card}
-{
-  name=card,
-  description={is short for “playing card”. A complete set of cards is called
-  a \gls{deck}. Cards hold by a player is called a \gls{hand}. There are cards
-  with a \gls{face} and a back as well as double-sided cards}
-}
-
 \newglossaryentry{deck}
 {
   name=deck,
@@ -28,10 +20,26 @@
   up”)}
 }
 
+\newglossaryentry{discard pile}
+{
+  name=discard pile,
+  description={is a pile of cards which players discarded. Normally belongs to
+  a draw pile. Often if a draw pile is empty, its discard pile is shuffled to
+  form a new draw pile}
+}
+
+\newglossaryentry{draw pile}
+{
+  name=draw pile,
+  description={is a pile of cards from which player may draw cards. Normally
+  face-down if both sides do not show the same. Often accompanied by a
+  discard pile. Can contain 0, 1 or multiple cards}
+}
+
 \newglossaryentry{face}
 {
   name=face,
-  description={is the front-side of a \gls{card}. A card is face-down when users
+  description={is the front-side of a card. A card is face-down when users
   are only able to see the backside. It must technically be impossible to know
   the front of a face-down card if the player did not already have the chance
   to see it}

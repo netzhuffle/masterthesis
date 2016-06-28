@@ -1,0 +1,62 @@
+\chapter{Requirements}
+
+This chapter explains the requirements for the project.
+
+\section{Functional Requirements}
+
+\begin{enumerate}
+  \item There must be a reference implementation of widely known board or card
+  game.
+  \item There must be a reference implementation of a new (i.e. published in
+  the last 6 years) and more complex (i.e. a weight rating of at least 2.5 of 5
+  on \cite{BGG}) board or card game.
+  \item The API must support at least the following, typical functionalities of
+  board and card games:
+  \begin{enumerate}
+    \item Showing a board
+    \item Placing and moving game pieces
+    \item Generate randomness through six-sided \glspl{die} numbered from 1 to 6
+    \item Generate randomness through shuffled card \glspl{deck}
+    \item Drawing cards from \gls{face}-up and \gls{face}-down
+    \glspl{draw pile}
+    \item Placing cards, either freely or on \glspl{discard pile}
+    \item Shuffling a \glspl{discard pile} to create a new \glspl{draw pile}
+    \item A \gls{hand} where other players cannot see the \glspl{face}
+  \end{enumerate}
+  \item Because manipulation of clients is possible, cheating must not be
+  possible in the following functionalities:
+  \begin{enumerate}
+    \item Random numbers must be generated in a way not manipulable by single
+    clients.
+    \item Clients must not find out the \gls{face} of \gls{face}-down cards and
+    cards on other players' \glspl{hand}.
+    \item Clients must not be able to lie about \gls{face}-down cards when
+    turning \gls{face}-up.
+    \item When drawing cards from a shuffled \gls{draw pile} it must not be
+    possible for other clients to find out which card was drawn. At the same
+    time it must not be possible for multiple clients to draw the same
+    ``physical'' card. Clients must not be able to manipulate which card other
+    clients draw.
+  \end{enumerate}
+  \item Connecting of clients to a joint game must happen through sharing URLs
+  to other players.
+  \item Once the clients are connected, all communication must happen
+  \gls{peer-to-peer} without a central server.
+  \item The web application must be usable in up-to-date versions of Chrome,
+  Edge\footnote{The inception phase found that the APIs needed for data
+  exchange through \gls{P2P} are currently not implemented in Edge. This goal
+  will not be reachable for Edge.}, Firefox and Opera. (As these browser
+  automatically update to the newest version it is not important to support old
+  versions.)
+  \item The following lesser common functionalities of board and card games
+  should be supported if there is enough time for the implementation:
+  \begin{enumerate}
+    \item Multiple boards in a single game
+    \item Stacking of game pieces
+    \item Two-sided, reversable tokens
+    \item \Glspl{die} with customizable sides (e.g. symbols)
+    \item \Glspl{die} which are not 6-sided
+  \end{enumerate}
+  \item If time allows, the API could support the possibility for games to
+  automatize common game actions or controlling that rules are not violated.
+\end{enumerate}
