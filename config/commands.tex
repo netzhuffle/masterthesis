@@ -1,2 +1,7 @@
+\newcommand{\seeref}[1]
+	{\textit{\ref{#1} \nameref{#1}}}
+\newcommand{\see}[1]
+	{\seeref{#1} on page \pageref{#1}}
+
 \newfloat{listingfloat}{htb}{qcl}[chapter]
 \floatname{listingfloat}{Listing}
