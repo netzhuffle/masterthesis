@@ -23,6 +23,24 @@ This chapter explains the requirements for the project.
     \item Shuffling a \glspl{discard pile} to create a new \glspl{draw pile}
     \item A \gls{hand} where other players cannot see the \glspl{face}
   \end{enumerate}
+  \item Connecting of clients to a joint game must happen through sharing URLs
+  to other players.
+  \item The following lesser common functionalities of board and card games
+  should be supported if there is enough time for the implementation:
+  \begin{enumerate}
+    \item Multiple boards in a single game
+    \item Stacking of game pieces
+    \item Two-sided, reversable tokens
+    \item \Glspl{die} with customizable sides (e.g. symbols)
+    \item \Glspl{die} which are not 6-sided
+  \end{enumerate}
+  \item If time allows, the API could support the possibility for games to
+  automatize common game actions or controlling that rules are not violated.
+\end{enumerate}
+
+\section{Non-Functional Requirements}
+
+\begin{enumerate}
   \item Because manipulation of clients is possible, cheating must not be
   possible in the following functionalities:
   \begin{enumerate}
@@ -38,25 +56,20 @@ This chapter explains the requirements for the project.
     ``physical'' card. Clients must not be able to manipulate which card other
     clients draw.
   \end{enumerate}
-  \item Connecting of clients to a joint game must happen through sharing URLs
-  to other players.
   \item Once the clients are connected, all communication must happen
   \gls{peer-to-peer} without a central server.
+  \item It must be possible to play without creating a user account first.
+  \item Players must not need to install an application or plug-in first, other
+  than a supported web browser.
   \item The web application must be usable in up-to-date versions of Chrome,
-  Edge\footnote{The inception phase found that the APIs needed for data
-  exchange through \gls{P2P} are currently not implemented in Edge. This goal
-  will not be reachable for Edge.}, Firefox and Opera. (As these browser
-  automatically update to the newest version it is not important to support old
-  versions.)
-  \item The following lesser common functionalities of board and card games
-  should be supported if there is enough time for the implementation:
-  \begin{enumerate}
-    \item Multiple boards in a single game
-    \item Stacking of game pieces
-    \item Two-sided, reversable tokens
-    \item \Glspl{die} with customizable sides (e.g. symbols)
-    \item \Glspl{die} which are not 6-sided
-  \end{enumerate}
-  \item If time allows, the API could support the possibility for games to
-  automatize common game actions or controlling that rules are not violated.
+  Firefox and Opera.\footnote{This requirement changed compared to the project
+  proposal as the inception phase showed that the APIs needed for data exchange
+  through \gls{P2P} are currently not implemented in Edge. There is currently
+  no way to support Edge without depending on a central server for
+  communication.} (As these browser automatically update to the newest version
+  it is not important to support old versions.)
+  \item The API must be published as open-source software.
+  \item The reference implementations should be published as open-source. They
+  may be published under a proprietary licence if requested by the rightsholders
+  or not be published at all and just be used for documentation purposes.
 \end{enumerate}
