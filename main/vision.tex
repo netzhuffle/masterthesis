@@ -79,16 +79,16 @@ There are a few challanges for this project:
   \item[Trust control:] Being \gls{peer-to-peer} based, there is no trusted
   server to control or store \gls{hidden information}. Other players could use
   manipulated clients, so cheating should be prevented on the framework level.
-  By example, if a user plays a \gls{face}-down \gls{card}, the other user
+  By example, if a user plays a \gls{face}-down card, the other user
   do not know what is on the front side of the card, but the user must not be
   able to change the card with another when revealing.
   \item[Distributed generation of randomness:] \Glspl{die} are a common element
   in board games. There must be a way to conjointly create pseudo-random numbers
   without needing to trust the other clients.
-  \item[“Mental Poker Problem”:] Users must be able to draw \glspl{card} from a
-  shared, shuffled card pile without the other clients knowing which
-  \glspl{card} they are and without beeing able for multiple clients to draw the
-  same “physical” \gls{card}.
+  \item[“Mental Poker Problem”:] Users must be able to draw cards from a
+  shared, shuffled card pile without the other clients knowing which cards they
+  are and without beeing able for multiple clients to draw the same “physical”
+  card.
   \item[Reference implementations:] Finding two very different board or card
   games for the reference implementations to use as an example, to showcase all
   realized features and to show the abilities of the framework.
@@ -121,3 +121,20 @@ forward to finally being able to realize this project as it merges two of his
 favorite subjects, has very interesting mathematic and cryptographic problems to
 be solved and also contains research parts about finding the right
 technologies, how to use them and solve the associated challanges.
+
+\section{Stakeholders}
+
+\begin{description}
+  \item[Players] want to play the chosen games against each other in a
+  non-complicated way without technical issues.
+  \item[Developers] want to use an API to reduce the work and needed time to
+  implement new board game apps by not needing to reinvent the wheel and ideally
+  only needing to write their board game related program code.
+  \item[Publishers] want to be able to reduce the financial costs
+  involved for publishing online board game apps.
+  \item[Authors] want a way to easily playtest new ideas without producing
+  physical components and being able to change them as the board or card game
+  processes.\footnote{Thanks to Andreas Finkernagel of Pegasus Spiele for
+  pointing out the idea that this common need could also be solved by this
+  project}
+\end{description}
