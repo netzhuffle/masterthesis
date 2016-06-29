@@ -1,0 +1,94 @@
+\chapter{Risks}
+
+This chapter describes the perceived risks to the success of the project.
+
+\section{Microsoft Edge Does Not Support Data Channels Until End of Project}
+\label{sec:riskedgedatachannels}
+
+\begin{description}
+  \item[Description:] Microsoft Edge currently is on the list of web browsers
+  that must be supported (see requirement \ref{itm:supportedbrowsers} in
+  section \see{sec:nonfunctionalreq}). Microsoft Edge currently does not support
+  a required API (RPCDataChannels) to fulfill the other requirements
+  \cite{Microsoft2016datachannels}. This “must” requirement cannot be fulfilled
+  if Edge does not support this API as there is currently no way to support
+  Edge without depending on a central server for communication.
+  \item[Probability:] High (as the implementation priority for Edge is
+  currently set to “low” \cite{Microsoft2016datachannels})
+  \item[Impact:] High (as the project requirements cannot be fulfilled)
+  \item[Magnitude:] High
+  \item[Response Strategy:] Avoid---The requirement to support Edge is dropped
+  from requirement \ref{itm:supportedbrowsers} in section
+  \see{sec:nonfunctionalreq}.
+\end{description}
+
+\section{The Cryptographical Requirements Are Too Hard to Implement}
+
+\begin{description}
+  \item[Description:] Cryptographic requirements such as \ref{itm:mentalpoker}
+  in section \see{sec:nonfunctionalreq} have scientifically documented
+  algorithms, but those are hard to understand and cannot get to work.
+  \item[Probability:] Medium (as the author has no previous knowledge of
+  implementations)
+  \item[Impact:] High (as the project requirements cannot be fulfilled)
+  \item[Magnitude:] High
+  \item[Response Strategy:] Mitigate---It will be researched if there exists a
+  library or projects who can be reused who implement the needed
+  functionalities. If not, the own implementation will be tackled as soon as
+  possible.
+\end{description}
+
+\section{Missing Knowledge}
+
+\begin{description}
+  \item[Description:] The author lacks knowledge to implement a feature which
+  leads to delays in the project plan.
+  \item[Probability:] Medium (as the author knows he knows nothing)
+  \item[Impact:] Medium (as the project has a fixed time span)
+  \item[Magnitude:] Medium
+  \item[Response Strategy:] Mitigate---A time reserve of multiple days will be
+  planned to reduce the impact of delays. Unsure or complicated looking tasks
+  will be tackled early in the project. For tasks the author has little or no
+  knowledge of, time to learn will be included in the project plan.
+\end{description}
+
+\section{A Browser Does Not Support a Required API}
+
+\begin{description}
+  \item[Description:] It is not possible to support a required browser (other
+  than risk \ref{sec:riskedgedatachannels}, which spawned from this risk).
+  \item[Probability:] Low (as the currently known APIs are supported)
+  \item[Impact:] High (as the project requirements cannot be fulfilled)
+  \item[Magnitude:] Medium
+  \item[Response Strategy:] Mitigate---It will be researched as soon as possible
+  for each requirement which APIs are needed and if the browser need it. If not,
+  a workaround is researched.
+\end{description}
+
+\section{Missing Permission For Game Reference Implementation}
+
+\begin{description}
+  \item[Description:] The author does not get permission for reference
+  implementations at multiple board game publishers.
+  \item[Probability:] Low (as the author has connections to the board game
+  industry)
+  \item[Impact:] High (as the project requirements cannot be fulfilled)
+  \item[Magnitude:] Medium
+  \item[Response Strategy:] Mitigate---The permissions will be optained as soon
+  as possible through using the personal connections to board game publishers.
+\end{description}
+
+\section{Impossible Cryptographic Requirement}
+
+\begin{description}
+  \item[Description:] The author finds no way to implement a cryptographic
+  requirement such as \ref{itm:distributedrandomness} in section
+  \see{sec:nonfunctionalreq}.
+  \item[Probability:] Low (as the author researched the possibilities before
+  writing the project proposal)
+  \item[Impact:] High (as the project requirements cannot be fulfilled)
+  \item[Magnitude:] Medium
+  \item[Response Strategy:] Mitigate---Working algorithms for the cryptographic
+  requirements will be researched and documented in this thesis as soon as
+  possible.
+\end{description}

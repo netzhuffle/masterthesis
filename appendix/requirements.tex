@@ -38,37 +38,36 @@ This chapter explains the requirements for the project.
   automatize common game actions or controlling that rules are not violated.
 \end{enumerate}
 
-\section{Non-Functional Requirements}
+\section{Non-Functional Requirements} \label{sec:nonfunctionalreq}
 
 \begin{enumerate}
   \item Because manipulation of clients is possible, cheating must not be
   possible in the following functionalities:
   \begin{enumerate}
-    \item Random numbers must be generated in a way not manipulable by single
-    clients.
+    \item \label{itm:distributedrandomness} Random numbers must be generated in
+    a way not manipulable by single clients.
     \item Clients must not find out the \gls{face} of \gls{face}-down cards and
     cards on other players' \glspl{hand}.
     \item Clients must not be able to lie about \gls{face}-down cards when
     turning \gls{face}-up.
-    \item When drawing cards from a shuffled \gls{draw pile} it must not be
-    possible for other clients to find out which card was drawn. At the same
-    time it must not be possible for multiple clients to draw the same
-    ``physical'' card. Clients must not be able to manipulate which card other
-    clients draw.
+    \item \label{itm:mentalpoker} When drawing cards from a shuffled
+    \gls{draw pile} it must not be possible for other clients to find out which
+    card was drawn. At the same time it must not be possible for multiple
+    clients to draw the same ``physical'' card. Clients must not be able to
+    manipulate which card other clients draw.
   \end{enumerate}
   \item Once the clients are connected, all communication must happen
   \gls{peer-to-peer} without a central server.
   \item It must be possible to play without creating a user account first.
   \item Players must not need to install an application or plug-in first, other
   than a supported web browser.
-  \item The web application must be usable in up-to-date versions of Chrome,
-  Firefox and Opera.\footnote{This requirement changed compared to the project
-  proposal as the inception phase showed that the APIs needed for data exchange
-  through \gls{P2P} are currently not implemented in Edge
-  \cite{Microsoft2016datachannels}. There is currently no way to support Edge
-  without depending on a central server for communication.} (As these browser
-  automatically update to the newest version it is not important to support old
-  versions.)
+  \item \label{itm:supportedbrowsers} The web application must be usable in
+  up-to-date versions of Chrome, Firefox and Opera.\footnote{This requirement
+  changed compared to the project proposal as the risk analysis in the
+  inception phase showed that the APIs needed for data exchange through
+  \gls{P2P} are currently not implemented in Edge, see risk
+  \see{sec:riskedgedatachannels}} (As these browser automatically update to the
+  newest version it is not important to support old versions.)
   \item The API must be published as open-source software.
   \item The API must be documented.
   \item The reference implementations should be published as open-source. They
