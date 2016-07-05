@@ -1,7 +1,16 @@
 \newcommand{\seeref}[1]
-	{\textit{\ref{#1} \nameref{#1}}}
+  {\textit{\ref{#1} \nameref{#1}}}
 \newcommand{\see}[1]
-	{\seeref{#1} on page \pageref{#1}}
+  {\seeref{#1} on page \pageref{#1}}
+
+\newlist{starenum}{enumerate}{1}
+\setlist[starenum]{label=*\alph*.}
+
+\newlist{refenum*}{enumerate}{1}
+\setlist[refenum*]{label=\refenumprefix\alph*.}
+\newenvironment{refenum}[1]
+  {\def\refenumprefix{\ref{#1}} \begin{refenum*}}
+  {\end{refenum*}}
 
 \newfloat{listingfloat}{htb}{qcl}[chapter]
 \floatname{listingfloat}{Listing}

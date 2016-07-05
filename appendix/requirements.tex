@@ -18,7 +18,6 @@ This chapter explains the requirements for the project.
     \item Generate randomness through six-sided \glspl{die} numbered from 1 to 6
     \item Generate randomness through shuffled card \glspl{deck}
     \item Drawing cards from a \gls{draw pile}
-    \glspl{draw pile}
     \item Placing cards, either freely or on \glspl{discard pile}
     \item Shuffling a \glspl{discard pile} to create a new \glspl{draw pile}
     \item A \gls{hand} where other players cannot see the \glspl{face}
@@ -100,3 +99,134 @@ thus are not handled here.
   \item Shuffle a \gls{discard pile} to create a \gls{draw pile}
   \item Flip a game piece
 \end{enumerate}
+
+\subsection{Connect to a Game Session}
+
+\begin{description}
+  \item[Brief Description:] The user connects to a game session to enter the
+  game as a player, be able to manipulate the game area and to see actions of
+  other players.
+  \item[Stakeholders and Interests:] Players want to join a game without
+  technical issues. Developers want to get the possibility to manipulate the
+  game area for all clients and receive events from other clients without
+  needing to implement the connection and communication logic by themselves.
+  System administrators want to have a low server load even with many players
+  joining.
+  \item[Preconditions:] A game session is created and the joining client knows
+  its identification.
+  \item[Success Guarantee:] The client has joined the game sessions. The other
+  clients in the game session know about the new client. The new client is able
+  to receive events from the other clients and vice versa.
+  \item[Main Success Scenario:] \hfill
+  \begin{enumerate}
+    \item The game implementation tells the framework the game session
+    identifier.
+    \item \label{itm:connectgamesession_lookup} The framework looks up on a
+    web server, who the other clients in the game session are.
+    \item \label{itm:connectgamesession_connect} The framework connects the new
+    client to the other clients.
+    \item The framework gives the game implementation a way to manipulate the
+    game area in a way that all clients know about the changes and to receive
+    events from other clients.
+  \end{enumerate}
+  \item[Extensions (List):] \hfill
+  \begin{starenum}
+    \item A JavaScript error occures.
+    \item The used client does not support a needed API.
+  \end{starenum}
+  \begin{refenum}{itm:connectgamesession_lookup}
+    \item The session identifier does not exist.
+  \end{refenum}
+  \begin{refenum}{itm:connectgamesession_connect}
+    \item The connection to a single client fails.
+    \item The connections to all other clients fail.
+  \end{refenum}
+  \item[Frquency of Occurrence:] Once per game session.
+  \item[Miscellaneous:] \hfill
+  \begin{itemize}
+    \item Can a client join an already running game? (e.g. when the connection
+    dropped)
+    \item Spectator mode for clients to just receive events but not allowed to
+    manipulate the game area?
+  \end{itemize}
+\end{description}
+
+\subsection{Add a Draw Pile to the Table}
+
+\begin{description}
+  \item[Brief Description:] The user wants to put a \gls{face}-down and shuffled
+  \gls{draw pile} in the game area so all clients are able to draw cards.
+  \item[Stakeholders and Interests:] Players want to have access to the
+  \gls{draw pile} to be able to draw cards. They want to have the \gls{draw
+  pile} shuffled in a way that other players cannot know or influence the order
+  of cards. Developers want to setup the game area without needing to solve and
+  implement the logic by themselves. System administrators do not want system
+  load on their server through this Use Case.
+  \item[Preconditions:] The client is connected to a game session. All clients
+  know the cards in the \gls{deck}.
+  \item[Success Guarantee:] All connected clients know about the new \gls{draw
+  pile}. No client knows about the order of cards or is able to influence it.
+  \item[Main Success Scenario:] \hfill
+  \begin{enumerate}
+    \item \label{itm:adddrawpile_telldeck} The game implementation tells the
+    framework which \gls{deck} should be shuffled.
+    \item The framework shuffles the cards with the help of all clients to
+    create a \gls{draw pile}.
+    \item The framework tells all clients about the new \gls{draw pile}.
+  \end{enumerate}
+  \item[Extensions (List):] \hfill
+  \begin{starenum}
+    \item A JavaScript error occures.
+    \item Communication to a client breaks.
+    \item Communication to all other clients breaks.
+  \end{starenum}
+  \begin{refenum}{itm:adddrawpile_telldeck}
+    \item The \gls{deck} does not exist.
+  \end{refenum}
+  \item[Frquency of Occurrence:] Once or few times per game session.
+  \item[Miscellaneous:] \hfill
+  \begin{itemize}
+    \item What about \gls{face}-up \glspl{draw pile}?
+  \end{itemize}
+\end{description}
+
+\subsection{Draw a Card}
+
+\begin{description}
+  \item[Brief Description:] The user wants to draw a card from an \gls{draw
+  pile} to his \gls{hand}.
+  \item[Stakeholders and Interests:] Players want to draw a card from an
+  \gls{draw pile} to use it later in the game. They to not want other players
+  to be able to know or influence which card is drawn or to draw the same card.
+  Developers do not want multiple players to be able to draw the same card and
+  they do not want to solve and implement the logic by themselves System
+  administrators do not want system load on their server through this Use Case.
+  \item[Preconditions:] The client is connected to a game session. All clients
+  know about the \gls{draw pile}.
+  \item[Success Guarantee:] All connected clients know that the player has draw
+  a card to his hand. The player knows which card he drew. No other client knows
+  which card it is. The card is not one another player already drew.
+  \item[Main Success Scenario:] \hfill
+  \begin{enumerate}
+    \item \label{itm:drawcard_telldrawpile} The game implementation tells the
+    framework from which \gls{draw pile} the player wants to draw.
+    \item The framework finds out with the help of all clients which card it is.
+    \item The framework tells all clients that the player drew a card.
+    \item The framework tells the player's client which card it is.
+  \end{enumerate}
+  \item[Extensions (List):] \hfill
+  \begin{starenum}
+    \item A JavaScript error occures.
+    \item Communication to a client breaks.
+    \item Communication to all other clients breaks.
+  \end{starenum}
+  \begin{refenum}{itm:drawcard_telldrawpile}
+    \item The \gls{draw pile} does not exist.
+    \item The \gls{draw pile} is empty.
+  \end{refenum}
+  \item[Frquency of Occurrence:] Multiple times per game session.
+  \item[Miscellaneous:] \hfill
+  \begin{itemize}
+    \item What about \gls{face}-up \glspl{draw pile}?
+  \end{itemize}
+\end{description}
