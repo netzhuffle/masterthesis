@@ -85,9 +85,14 @@ thus are not handled here.
 
 \subsection{Use-Case List}
 
+As the API is used by game implementations and not directly with players, the
+``Use Cases'' are not typical user-based Use Cases (e.g. shorter and only a
+few steps). From the user view, there would be a single use case ``Play game''.
+
 \begin{enumerate}
   \item Create a game session
   \item Connect to a game session
+  \item Start a game session
   \item Add a board to the table
   \item Add a game piece to the table
   \item Add a \gls{draw pile} to the table
@@ -100,18 +105,49 @@ thus are not handled here.
   \item Flip a game piece
 \end{enumerate}
 
+\subsection{Create a Game Session}
+
+\begin{description}
+  \item[Brief Description:] The user creates a game session for other players
+  to join.
+  \item[Stakeholders and Interests:] Players want to create a new game session
+  and an easy way to invite other players. Developers want to create and setup a
+  game session to connect the players over the network without needing to
+  implement the connection and communication logic by themselves. System
+  administrators want to have a low server load even with many players joining.
+  \item[Preconditions:] None.
+  \item[Success Guarantee:] The client has created and joined the new game
+  session and is able to send and receive events to and from joining players.
+  The user got an URL to share with other players through which they can join
+  the game.
+  \item[Main Success Scenario:] \hfill
+  \begin{enumerate}
+    \item The game implementation tells the framework that a user wants to
+    create a new game session.
+    \item The framework creates a new game identifier.
+    \item The framework readies the new session for other players to join.
+    \item The game implementation can tell the user an URL to share with the
+    other players.
+  \end{enumerate}
+  \item[Extensions (List):] \hfill
+  \begin{starenum}
+    \item A JavaScript error occures.
+    \item The used client does not support a needed API.
+  \end{starenum}
+  \item[Frquency of Occurrence:] Once per game session.
+  \item[Miscellaneous:] \hfill
+\end{description}
+
 \subsection{Connect to a Game Session}
 
 \begin{description}
   \item[Brief Description:] The user connects to a game session to enter the
-  game as a player, be able to manipulate the game area and to see actions of
-  other players.
+  game as a player.
   \item[Stakeholders and Interests:] Players want to join a game without
-  technical issues. Developers want to get the possibility to manipulate the
-  game area for all clients and receive events from other clients without
-  needing to implement the connection and communication logic by themselves.
-  System administrators want to have a low server load even with many players
-  joining.
+  technical issues. Developers want to connect the player to the others over the
+  network without needing to implement the connection and communication logic by
+  themselves. System administrators want to have a low server load even with
+  many players joining.
   \item[Preconditions:] A game session is created and the joining client knows
   its identification.
   \item[Success Guarantee:] The client has joined the game sessions. The other
@@ -122,12 +158,9 @@ thus are not handled here.
     \item The game implementation tells the framework the game session
     identifier.
     \item \label{itm:connectgamesession_lookup} The framework looks up on a
-    web server, who the other clients in the game session are.
+    web server who the other clients in the game session are.
     \item \label{itm:connectgamesession_connect} The framework connects the new
     client to the other clients.
-    \item The framework gives the game implementation a way to manipulate the
-    game area in a way that all clients know about the changes and to receive
-    events from other clients.
   \end{enumerate}
   \item[Extensions (List):] \hfill
   \begin{starenum}
@@ -141,14 +174,46 @@ thus are not handled here.
     \item The connection to a single client fails.
     \item The connections to all other clients fail.
   \end{refenum}
-  \item[Frquency of Occurrence:] Once per game session.
+  \item[Frquency of Occurrence:] A few times per game session.
   \item[Miscellaneous:] \hfill
   \begin{itemize}
-    \item Can a client join an already running game? (e.g. when the connection
-    dropped)
     \item Spectator mode for clients to just receive events but not allowed to
     manipulate the game area?
   \end{itemize}
+\end{description}
+
+\subsection{Start a Game Session}
+
+\begin{description}
+  \item[Brief Description:] The user starts the game in order that the game
+  area is setup and all players are able to manipulate the game area and see
+  the actions of other players.
+  \item[Stakeholders and Interests:] Players want to start the game without
+  technical issues. Developers want to get the possibility to manipulate the
+  game area for all clients and receive events from other clients without
+  needing to implement the connection and communication logic by themselves.
+  System administrators want to have a low server load even when many players
+  have joined.
+  \item[Preconditions:] All players have joined the session and are connected
+  to each other.
+  \item[Success Guarantee:] The clients can manipulate the game area in a way
+  that the other clients are notified of the changes.
+  \item[Main Success Scenario:] \hfill
+  \begin{enumerate}
+    \item The game implementation tells the framework that all players have
+    joined.
+    \item The framework notifies all clients about the game start.
+    \item The framework gives the game implementation on each client a way to
+    manipulate the game area in a way that all clients know about the changes
+    and to receive events from other clients.
+  \end{enumerate}
+  \item[Extensions (List):] \hfill
+  \begin{starenum}
+    \item A JavaScript error occures.
+    \item A client left in the meantime.
+  \end{starenum}
+  \item[Frquency of Occurrence:] Once per game session.
+  \item[Miscellaneous:] \hfill
 \end{description}
 
 \subsection{Add a Draw Pile to the Table}
