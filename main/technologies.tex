@@ -1,0 +1,76 @@
+\chapter{Used Technologies and Technical Considerations}
+
+This chapter explains the technologies used in the project and the associated
+technical decisions.
+
+\section{WebRTC}
+
+\Gls{WebRTC} enables \gls{peer-to-peer} connections between webbrowsers. The
+standard is defined by the \gls{W3C} \cite{w3c2016webrtc} and consists of three
+parts:
+
+\begin{description}
+\item[RTCPeerConnection] establishes the \gls{P2P} connection between the
+clients in question.
+\item[MediaStream] represents audio and video streams over \gls{WebRTC} for
+uses like IP video telephony.
+\item[RTCDataConnection] creates channels for exchanging arbitrary data over
+\gls{WebRTC}.
+\end{description}
+
+This project only uses the RTCPeerConnection and RTCDataConnection parts.
+
+There is another standard called Object RTC (often dubbed \gls{WebRTC} 1.1)
+with a similar but incompatible \gls{API} that is wire compatible\footnote{Wire
+compatible means that the underlying exchanged messages are compatible, thus
+\gls{WebRTC} endpoints can connect to and communicate with ObjectRTC endpoints.}
+with \gls{WebRTC} \cite{objectrtc2016ortc}. At the time of writing, ObjectRTC is
+only implemented in Microsoft Edge \cite{Microsoft2016objectrtc} but without
+RTCDataConnection \cite{Microsoft2016datachannels} whereas \gls{WebRTC}
+including RTCDataConnection is implemented in both Chrome and Firefox
+\cite{Microsoft2016webrtc}. For this reason the decision was made to use
+\gls{WebRTC} instead of ObjectRTC. Compatibility to the ObjectRTC \gls{API}
+could be added on a later point if needed.
+
+\section{ECMAScript 2015}
+
+\Gls{ECMAScript} is the standard for JavaScript. The sixth edition of
+\gls{ECMAScript} is called \gls{ECMAScript 2015} and brought a number of
+features over the previous edition \gls{ECMAScript} 5 like modules, class
+syntax, arrow functions, template strings and promises
+\cite{ecma2015ecmascript}. At the time of writing, almost all \gls{ECMAScript
+2015} features are supported in current browsers, including those who support
+\gls{WebRTC} \cite{zaytsev2016ecmascript}, with modules being the main exception
+\cite{Microsoft2016modules}.
+
+There are other programming languages for web applications, which normally are
+transcompiled to JavaScript to run in webbrowsers. In the years before
+\gls{ECMAScript 2015} the most used JavaScript alternative was CoffeeScript
+which adds syntactic sugar to enhance the readability of JavaScript and be more
+convenient to work with. Many features and syntax enhancements of
+\gls{ECMAScript 2015} were inspired by CoffeeScript which made many CoffeeScript
+developers to switch back to \gls{ECMAScript 2015}, leading to a strongly
+declining use of CoffeeScript. Hence CoffeeScript was not considered for this
+project.
+
+Today the most used JavaScript alternative is TypeScript, which is a strict
+superset of JavaScript. TypeScript added features like class-based
+object-oriented programming to \gls{ECMAScript} 5, based on the proposal for
+\gls{ECMAScript 2015}, in addition to optional static typing with type
+annotations. Since most of those features are now available in webbrowsers
+through pure \gls{ECMAScript 2015} and because modern JavaScript \glspl{IDE} can
+do a similar level of type checking through \gls{ESDoc} type annotations, the
+decision was made to use pure \gls{ECMAScript 2015} in favor of TypeScript. This
+has the advantage of not needing a transcompiler\footnote{Except for modules,
+for which a module loader library would also be needed in TypeScript. As soon as
+\gls{ECMAScript 2015} modules are supported by webbrowsers, no transcompiler or
+module loader library is needed at all. This is currently in developement for
+every webbrowser \cite{Microsoft2016modules}.} and running with the original code
+directly in webbrowsers. Since TypeScript is a superset of JavaScript, the
+programming code can directly be used in TypeScript projects without needing
+changes or making the understanding of the code more difficult, while also
+allowing the project authors to use JavaScript or other compatible languages
+and still understanding the original code.
+
+\section{API Design Principles}
+\section{External Dependencies}
