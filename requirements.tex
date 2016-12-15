@@ -5,7 +5,7 @@ This chapter explains the requirements for the project.
 \section{Functional Requirements}
 
 \begin{enumerate}
-  \item There must be a reference implementation of widely known board or card
+  \item There must be a reference implementation of a widely known board or card
   game.
   \item There must be a reference implementation of a new (i.e. published in
   the last 6 years) and more complex (i.e. a weight rating of at least 2.5 of 5
@@ -19,7 +19,7 @@ This chapter explains the requirements for the project.
     \item Generate randomness through shuffled card \glspl{deck}
     \item Drawing cards from a \gls{draw pile}
     \item Placing cards, either freely or on \glspl{discard pile}
-    \item Shuffling a \glspl{discard pile} to create a new \glspl{draw pile}
+    \item Shuffling a \gls{discard pile} to create a new \gls{draw pile}
     \item A \gls{hand} where other players cannot see the \glspl{face}
   \end{enumerate}
   \item Connecting of clients to a joint game must happen through sharing URLs
@@ -33,7 +33,7 @@ This chapter explains the requirements for the project.
     \item \Glspl{die} with customizable sides (e.g. symbols)
     \item \Glspl{die} which are not 6-sided
   \end{enumerate}
-  \item If time allows, the API could support the possibility for games to
+  \item If time allows, the library could support the possibility for games to
   automatize common game actions or controlling that rules are not violated.
 \end{enumerate}
 
@@ -65,7 +65,7 @@ This chapter explains the requirements for the project.
   changed compared to the project proposal as the risk analysis in the
   inception phase showed that the APIs needed for data exchange through
   \gls{P2P} are currently not implemented in Edge, see risk
-  \see{sec:riskedgedatachannels}} (As these browser automatically update to the
+  \see{sec:riskedgedatachannels}} (As these browsers automatically update to the
   newest version it is not important to support old versions.)
   \item The API must be published as open-source software.
   \item The API must be documented.
@@ -79,13 +79,13 @@ This chapter explains the requirements for the project.
 As the API is only used by board and card game implementations, there is a
 single actor: The game implementation.
 
-The Use-Case Model contains the “must” and “should” requirements but no “may”
-requirements. The actions of the players inside games depend on the games and
+The Use-Case Model contains the ``must'' and ``should'' requirements but no ``may''
+requirements. The actions of the players during games depend on the games and
 thus are not handled here.
 
 \subsection{Use-Case List}
 
-As the API is used by game implementations and not directly with players, the
+As the API is used by game implementations and not directly by players, the
 ``Use Cases'' are not typical user-based Use Cases (e.g. shorter and only a
 few steps). From the user view, there would be a single use case ``Play game''.
 
@@ -105,6 +105,9 @@ few steps). From the user view, there would be a single use case ``Play game''.
   \item Flip a card
   \item Flip a game piece
 \end{enumerate}
+
+The most important five Use Cases are explained in the fully dressed format
+below.
 
 \subsection{Create a Game Session}
 
@@ -135,8 +138,7 @@ few steps). From the user view, there would be a single use case ``Play game''.
     \item A JavaScript error occures.
     \item The used client does not support a needed API.
   \end{starenum}
-  \item[Frquency of Occurrence:] Once per game session.
-  \item[Miscellaneous:] \hfill
+  \item[Frequency of Occurrence:] Once per game session.
 \end{description}
 
 \subsection{Connect to a Game Session}
@@ -259,17 +261,17 @@ few steps). From the user view, there would be a single use case ``Play game''.
 \subsection{Draw a Card}
 
 \begin{description}
-  \item[Brief Description:] The user wants to draw a card from an \gls{draw
+  \item[Brief Description:] The user wants to draw a card from a \gls{draw
   pile} to his \gls{hand}.
   \item[Stakeholders and Interests:] Players want to draw a card from an
-  \gls{draw pile} to use it later in the game. They to not want other players
+  \gls{draw pile} to use it later in the game. They do not want other players
   to be able to know or influence which card is drawn or to draw the same card.
   Developers do not want multiple players to be able to draw the same card and
-  they do not want to solve and implement the logic by themselves System
+  they do not want to solve and implement the logic by themselves. System
   administrators do not want system load on their server through this Use Case.
   \item[Preconditions:] The client is connected to a game session. All clients
   know about the \gls{draw pile}.
-  \item[Success Guarantee:] All connected clients know that the player has draw
+  \item[Success Guarantee:] All connected clients know that the player has drawn
   a card to his hand. The player knows which card he drew. No other client knows
   which card it is. The card is not one another player already drew.
   \item[Main Success Scenario:] \hfill
