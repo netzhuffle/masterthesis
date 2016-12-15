@@ -13,12 +13,64 @@
 
 \section*{Starting Position}\addcontentsline{toc}{section}{Starting Position}
 
-
+Board and card games are not only played on tables, but also with increasing
+popularity on electronic devices. This often requires every player downloading
+and installing an app or webbrowser extension, which is a significant amount of
+work needed to be able to start playing or just showing somebody a new board
+game over the internet.
 
 \section*{Approach, Technologies}\addcontentsline{toc}{section}{Approach, Technologies}
 
+The goal of this project is to make it easier for software developers to create
+board and card game implementations that are as easy to get started with for
+players as is visiting a website. Players visit the game's web address and share them
+with the other players to invite them to the game. Everything takes place in the
+webbrowser using modern web technologies without needing installations or
+configurations for the players. The webbrowsers connect and communicate to each
+other enabling people to easily play board and card games over the internet with
+each other.
 
+To achieve this goal, this project creates a library for software developers
+which manages the connection and communication process. The using software
+developer only needs to build the board game implementation and its user
+interface and can use the library for common actions like shuffling and drawing
+cards, rolling dice or moving pieces on the board without needing to care about
+the communication between the players or ensuring that nobody can influence the
+order of cards in a card deck or find out which cards other players have drawn.
 
 \section*{Results}\addcontentsline{toc}{section}{Results}
 
+The library was created according to the requirements and is ready to be used
+for board and card game implementations. It can be included in web projects and
+be used in compliance with modern software developement practices. The goals
+have been achieved and three example implementations (two real, existing board
+games of different complexity, and one demo website featuring dice and cards)
+show the library's usefulness for both easy and complex board and card games. A
+library manual explains how to include and use the library in own projects, a
+technical documentation enlarges upon how the goals were realized, especially
+the cryprographic guarantees to avoid cheating, and which factors were
+considered when designing the library's programming interface. The three
+implementations are operational and can be used as references or starting points
+for own projects.
 
+\section*{Outlook}\addcontentsline{toc}{section}{Outlook}
+
+After this thesis the library will be published and can be used together with
+its technical documentation, library manual, and the reference implementations
+by software development teams to simplify the creation of board and card game
+implementations, by board game authors to prototype and test ideas without
+needing to create physical copies of all components, by board game publishers
+for online game implementations (may that be as another way to earn money with
+intellectual property, to let players test or play for free as a way to promote
+the physical board games, or in the form of online rule learning tutorials) or
+by individuals wishing to implement their favorite board games and play them
+with friends without the need to develop a whole app.
+
+There is also potential for follow-up projects: With a second library tackling
+typical user interfaces (in 2D or even simulating a three-dimensional
+environment) the development could be simplified even more. Also imaginable is a
+plattform for creating board and card game implementations through a graphical
+website through uploading existing image files, leading to evading the need of
+writing programm code and allowing even people without any software development
+knowledge at all to be able to bring game implementations into being. This would
+drastically expand the target group and ease of use of this project.

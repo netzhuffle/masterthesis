@@ -1,35 +1,35 @@
 \chapter{API Handbook}
 
-\section{Draw a card}
-
-\begin{description}
-	\item[Use Case] Draw a random Card from a Deck
-	\item[Precondition] Game has started, created a Deck
-	\item[Possible Failures] A client disconnects or a timeout occures: Emits
-	timeoutError event
-	\item[Needed Data] Deck
-	\item[Emits Event] drawFinish
-	\item[Notes] Automatically shuffles if the Deck is not shuffled yet
-\end{description}
-
-\subsection{Description}
-
-Draw a Card from a Deck. The other clients will not know which card was drawn.
-It is not possible to draw the same card twice, neither on the same client, nor
-with different clients.
-
-The Deck has to be created (see REFERENCE) and the game has to be started (see
-REFERENCE). A listener to the timeoutError event has to be registered to avoid
-silent fails.
-
-If a card was successfull determined, the drawFinish event will be emited with
-the new Card object. If a network timeout to an other client occured, a
-timeoutError event will be emited with an Error object.
-
-\subsection{Example}
-
-\begin{lstlisting}
-deck.on.timeoutError.add(error => alert(error.message));
-deck.on.drawFinish.add(card => alert(card.id));
-deck.draw();
-\end{lstlisting}
+% \section{Draw a card}
+% 
+% \begin{description}
+% 	\item[Use Case] Draw a random Card from a Deck
+% 	\item[Precondition] Game has started, created a Deck
+% 	\item[Possible Failures] A client disconnects or a timeout occures: Emits
+% 	timeoutError event
+% 	\item[Needed Data] Deck
+% 	\item[Emits Event] drawFinish
+% 	\item[Notes] Automatically shuffles if the Deck is not shuffled yet
+% \end{description}
+% 
+% \subsection{Description}
+% 
+% Draw a Card from a Deck. The other clients will not know which card was drawn.
+% It is not possible to draw the same card twice, neither on the same client, nor
+% with different clients.
+% 
+% The Deck has to be created (see REFERENCE) and the game has to be started (see
+% REFERENCE). A listener to the timeoutError event has to be registered to avoid
+% silent fails.
+% 
+% If a card was successfull determined, the drawFinish event will be emited with
+% the new Card object. If a network timeout to an other client occured, a
+% timeoutError event will be emited with an Error object.
+% 
+% \subsection{Example}
+% 
+% \begin{lstlisting}
+% deck.on.timeoutError.add(error => alert(error.message));
+% deck.on.drawFinish.add(card => alert(card.id));
+% deck.draw();
+% \end{lstlisting}
